@@ -769,7 +769,7 @@ void Inferences::print2() const {
   std::cout << "Adjacency Graphs:" << std::endl;
   UInt nMaxX = 0;
   boost::graph_traits<Adjacency>::vertex_iterator vi, vi_end;
-  for(tie(vi, vi_end) = boost::vertices(m_X); vi != vi_end; ++vi)
+  for(boost::tie(vi, vi_end) = boost::vertices(m_X); vi != vi_end; ++vi)
     nMaxX = std::max(nMaxX, (UInt) boost::out_degree(*vi, m_X));
   UInt nMaxXWidth = nMaxX * 5 + nMaxX - 1 + 2;
   t1 = 8 + nMaxXWidth;
@@ -779,7 +779,7 @@ void Inferences::print2() const {
 	<< " x={";
     if(boost::out_degree(i, m_X) > 0) {
       boost::graph_traits<Adjacency>::adjacency_iterator ji, ji_end;
-      tie(ji, ji_end) = boost::adjacent_vertices(i, m_X);
+      boost::tie(ji, ji_end) = boost::adjacent_vertices(i, m_X);
       oss << m_vComponents[*ji]->m_Dims;
       for(++ji; ji != ji_end; ++ji)
 	oss << "," << m_vComponents[*ji]->m_Dims;
@@ -790,7 +790,7 @@ void Inferences::print2() const {
     oss << " y={";
     if(boost::out_degree(i, m_Y) > 0) {
       boost::graph_traits<Adjacency>::adjacency_iterator ji, ji_end;
-      tie(ji, ji_end) = boost::adjacent_vertices(i, m_Y);
+      boost::tie(ji, ji_end) = boost::adjacent_vertices(i, m_Y);
       oss << m_vComponents[*ji]->m_Dims;
       for(++ji; ji != ji_end; ++ji)
 	oss << "," << m_vComponents[*ji]->m_Dims;
@@ -881,7 +881,7 @@ void Inferences::print() const {
   std::cout << "Adjacency Graphs:" << std::endl;
   UInt nMaxX = 0;
   boost::graph_traits<Adjacency>::vertex_iterator vi, vi_end;
-  for(tie(vi, vi_end) = boost::vertices(m_X); vi != vi_end; ++vi)
+  for(boost::tie(vi, vi_end) = boost::vertices(m_X); vi != vi_end; ++vi)
     nMaxX = std::max(nMaxX, (UInt) boost::out_degree(*vi, m_X));
   UInt nMaxXWidth = nMaxX * 2 + nMaxX - 1 + 2;
   t1 = 5 + nMaxXWidth;
@@ -891,7 +891,7 @@ void Inferences::print() const {
 	<< " x={";
     if(boost::out_degree(i, m_X) > 0) {
       boost::graph_traits<Adjacency>::adjacency_iterator ji, ji_end;
-      tie(ji, ji_end) = boost::adjacent_vertices(i, m_X);
+      boost::tie(ji, ji_end) = boost::adjacent_vertices(i, m_X);
       oss << *ji;
       for(++ji; ji != ji_end; ++ji)
 	oss << "," << *ji;
@@ -902,7 +902,7 @@ void Inferences::print() const {
     oss << " y={";
     if(boost::out_degree(i, m_Y) > 0) {
       boost::graph_traits<Adjacency>::adjacency_iterator ji, ji_end;
-      tie(ji, ji_end) = boost::adjacent_vertices(i, m_Y);
+      boost::tie(ji, ji_end) = boost::adjacent_vertices(i, m_Y);
       oss << *ji;
       for(++ji; ji != ji_end; ++ji)
 	oss << "," << *ji;
